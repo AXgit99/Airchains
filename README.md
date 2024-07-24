@@ -1,4 +1,4 @@
-**install go, if needed**
+**install go**
 ```
 cd $HOME
 VER="1.21.6"
@@ -11,24 +11,31 @@ echo "export PATH=$PATH:/usr/local/go/bin:~/go/bin" >> ~/.bash_profile
 source $HOME/.bash_profile
 [ ! -d ~/go/bin ] && mkdir -p ~/go/bin
 ```
-# set vars
+
+**set vars**
+```
 echo "export WALLET="wallet"" >> $HOME/.bash_profile
 echo "export MONIKER="test"" >> $HOME/.bash_profile
 echo "export AIRCHAIN_CHAIN_ID="junction"" >> $HOME/.bash_profile
 echo "export AIRCHAIN_PORT="19"" >> $HOME/.bash_profile
 source $HOME/.bash_profile
+```
 
-# download binary
+**download binary**
+```
 cd $HOME
 wget -O junctiond https://github.com/airchains-network/junction/releases/download/v0.1.0/junctiond
 chmod +x junctiond
 mv junctiond $HOME/go/bin/
+```
 
-# config and init app
+**config and init app**
+```
 junctiond init $MONIKER --chain-id $AIRCHAIN_CHAIN_ID 
 sed -i -e "s|^node *=.*|node = \"tcp://localhost:${AIRCHAIN_PORT}657\"|" $HOME/.junction/config/client.toml
+```
 
-# download genesis and addrbook
+**download genesis and addrbook**
 wget -O $HOME/.junction/config/genesis.json https://testnet-files.itrocket.net/airchains/genesis.json
 wget -O $HOME/.junction/config/addrbook.json https://testnet-files.itrocket.net/airchains/addrbook.json
 

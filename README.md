@@ -37,8 +37,8 @@ sed -i -e "s|^node *=.*|node = \"tcp://localhost:${AIRCHAIN_PORT}657\"|" $HOME/.
 
 **download genesis and addrbook**
 ```
-wget -O $HOME/.junction/config/genesis.json https://testnet-files.itrocket.net/airchains/genesis.json
-wget -O $HOME/.junction/config/addrbook.json https://testnet-files.itrocket.net/airchains/addrbook.json
+wget -O $HOME/.junction/config/genesis.json https://raw.githubusercontent.com/AXgit99/Airchains/main/genesis.json
+wget -O $HOME/.junction/config/addrbook.json https://raw.githubusercontent.com/AXgit99/Airchains/main/addrbook.json
 ```
 
 **set seeds and peers**
